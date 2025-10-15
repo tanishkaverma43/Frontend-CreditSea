@@ -1,9 +1,9 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://backend-credit-sea.vercel.app/api' : 'http://localhost:5000/api');
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 class ApiClient {
   getAuthHeaders() {
     const token = localStorage.getItem('token');
-    return {
+    return {  
       'Content-Type': 'application/json',
       ...(token && { Authorization: `Bearer ${token}` })
     };
